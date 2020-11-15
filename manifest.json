@@ -1,15 +1,19 @@
 {
   "manifest_version": 2,
-  "name": "FaviconFix",
+  "name": "Not Okay Google",
   "version": "1.0.0",
-
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
   "background": {
-      "scripts": ["background.js"]
+    "scripts": ["background.js"]
   },
 
   "permissions": [
-      "tabs",
-      "http://*/*",
-      "https://*/*"
+    "tabs",
+    "http://*/*",
+    "https://*/*"
   ]
 }
