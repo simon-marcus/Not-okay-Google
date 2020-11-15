@@ -1,11 +1,10 @@
 {
   "manifest_version": 2,
-  "name": "Not Okay Google",
+  "name": "Not Okay, Google",
+  "description": "Replace the new, confusing Google icons with the older, clearer ones. Works for Calendar, Drive, Gmail, Maps, and Meet.",
   "version": "1.0.0",
   "icons": {
-    "16": "icon16.png",
-    "48": "icon48.png",
-    "128": "icon128.png"
+    "128": "icon.png"
   },
   "background": {
     "scripts": ["background.js"]
