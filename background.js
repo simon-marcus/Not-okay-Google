@@ -26,24 +26,18 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo) => {
   ]
   if (changeInfo.status === 'complete') {
     chrome.tabs.query({
-      currentWindow: true
+      active: true,
+      lastFocusedWindow: true
     }, tabs => {
-      tabs.forEach(tab => {
-        var tabUrl = tab.url;
-        googleApps.forEach(app => {
-          if (tabUrl.includes(app.appUrl)) {
-            console.log(app.image);
-            chrome.tabs.executeScript(tabId, {
-              code: `document.querySelector(\'link[rel*="icon"]\').href = ${app.image}`
-            });
-            if (tabUrl.includes("meet.google")) {
-              console.log("meet.google")
-            }
-          }
-        });
-      })
+      var tabUrl = tabs[0].url;
+      googleApps.forEach(app => {        
+        if (tabUrl.includes(app.appUrl)) {
+          console.log(chrome.runtime.getURL(app.image));
+          chrome.tabs.executeScript(tabId, {
+            code: `document.querySelector(\'link[rel*="icon"]\').href = "${chrome.runtime.getURL(app.image)}"`
+          });
+        }
+      });
     });
-
-
   }
 })
